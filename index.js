@@ -8,9 +8,7 @@ const path = require('path')
 const log4js = require('log4js')
 const logger = require('./util/log')
 
-
 let port = config.express.port
-let root = path.normalize(__dirname)
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // 调用bodyParser模块以便程序正确解析body传入值
 app.use('/public',express.static(__dirname+'/public'))
@@ -31,8 +29,8 @@ let handlerStatusError = (status) => {
     res.status(status)
     res.render('pages/error',{
       layout:'index',
-      seaModule:'/public/js/home.js',
-      cssModule:'/public/css/home.css'
+      seaModule:'/public/js/common.js',
+      cssModule:'/public/css/common.css'
     })
   })
 }
