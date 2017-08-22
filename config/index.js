@@ -5,5 +5,9 @@ var config = {
     express:{
         port: process.env.PORT || 3000
     },
+    log:{
+        type:'file', //console or file
+        fileName: 'website.log'
+    }
 }
 module.exports = config
