@@ -5,13 +5,14 @@ const morgan = require('morgan'); // 命令行log显示
 const routes = require('./routes'); //路由配置
 const config = require('./config'); //全局配置
 const exphbs = require('express-handlebars')
+const path = require('path')
 
-let port = config.express.port;
-
+let port = config.express.port
+let root = path.normalize(__dirname)
 app.use(morgan('dev'));// 命令行中显示程序运行日志,便于bug调试
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json()); // 调用bodyParser模块以便程序正确解析body传入值
-app.use('/statics',express.static(__dirname+'/statics'))
+app.use('/public',express.static(__dirname+'/public'))
 routes(app); // 路由引入
 
 //引用express-handlebars模板引擎
@@ -26,7 +27,7 @@ app.set('view engine','.hbs');
 let handlerStatusError = (status) => {
   app.use((req,res,next)=>{
     res.status(status)
-    res.sendFile('statics/html/error.html')
+    res.sendFile(root+'/public/html/error.html')
   })
 }
 handlerStatusError(404)

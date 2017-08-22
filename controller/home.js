@@ -10,8 +10,8 @@ exports.renderHomePage = (req,res) =>{
       layout:'index',
       title:obj.title,
       infoData:obj,
-      seaModule:'/statics/js/home.js',
-      cssModule:'/statics/css/home.css'
+      seaModule:'/public/js/home.js',
+      cssModule:'/public/css/home.css'
   })
 }
 
