@@ -26,7 +26,7 @@ app.set('view engine','.hbs');
 let handlerStatusError = (status) => {
   app.use((req,res,next)=>{
     res.status(status)
-    res.sendfile('statics/html/error.html')
+    res.sendFile('statics/html/error.html')
   })
 }
 handlerStatusError(404)

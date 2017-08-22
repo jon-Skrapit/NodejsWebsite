@@ -5,24 +5,16 @@ const config = require('../config')
 exports.renderHomePage = (req,res) =>{
   let obj = {};
       obj.title = 'Home';
-      obj.info = '我是从服务层传送过来的';
+      obj.info = 'I am home.';
   res.render('pages/home',{
       layout:'index',
       title:obj.title,
       infoData:obj,
-      seaModule:'/static/js/home.js',
-      cssModule:'/static/css/home.css'
+      seaModule:'/statics/js/home.js',
+      cssModule:'/statics/css/home.css'
   })
 }
 
 exports.postInforData = (req,res) =>{
-  let data = {};
-      data.success = true;
-      data.errMsg = '请将controller文件夹下的home.js文件的postInforData方法的  data.success = false改为true';
-      data.name = 'tonyjiafan';
-      data.job = 'web前端';
-      data.age = '18';
-      data.sex = 'man';
-      console.log(data)
-      res.send(data)
+  res.send({status:200,message:'test',success:true})
 }
